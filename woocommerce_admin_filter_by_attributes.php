@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Woocommerce_admin_filter_by_attributes
- * Plugin URI: WooAFBA
+ * Plugin URI: https://github.com/emoop/woocommerce_admin_filter_by_attributes
  * Description: Filtering variable product by custom attributes like "size" or  "colors" in admin product area.
  *
  * Author: emoop

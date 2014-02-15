@@ -13,11 +13,16 @@
  
  if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
         return;
-		
+        
+  //add drop down to admin products area		
  add_action('restrict_manage_posts','woo_attribute_form');
+ 
+ //filter
+ add_filter('the_posts','filter_by_custom_attribute');
  
  function woo_attribute_form(){
      global $woocommerce;
+        //get custom attribute
         $attribute_taxonomies = $woocommerce->get_attribute_taxonomies();
 
         $output = "<select name='attribute' id='dropdown_product_att'>";
@@ -34,13 +39,13 @@
  echo $output;
 }
  
- add_filter('the_posts','filter_by_custom_attribute');
+ 
  
 function filter_by_custom_attribute($posts){
   global $pagenow, $wpdb, $wp;
 
   
-	  //'edit.php' != $pagenow || - onli for admin
+	        //'edit.php' != $pagenow  - only for admin
 		if (  'edit.php' != $pagenow ||  'product' != $wp->query_vars['post_type'] || ! isset( $_GET['attribute']) ){
 				return $posts;
 			}

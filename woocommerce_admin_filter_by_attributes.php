@@ -23,7 +23,7 @@
  function woo_attribute_form(){
      global $woocommerce;
         //get custom attribute
-        $attribute_taxonomies = $woocommerce->get_attribute_taxonomies();
+        $attribute_taxonomies = wc_get_attribute_taxonomies();
 
         $output = "<select name='attribute' id='dropdown_product_att'>";
         $output .="<option>attributes</option>";
